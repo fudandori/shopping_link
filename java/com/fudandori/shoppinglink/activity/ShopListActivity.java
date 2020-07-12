@@ -88,7 +88,6 @@ public class ShopListActivity extends AppCompatActivity {
         recyclerPreview.setLayoutManager(layoutManagerPreview);
 
         shopAdapter = new ShopListAdapter(this::longClick);
-        shopAdapter.disableRecolor();
         recyclerPreview.setAdapter(shopAdapter);
 
         ItemTouchHelper itemTouchHelper = Assist.getTouchHelper(x -> shopAdapter.delete(x));

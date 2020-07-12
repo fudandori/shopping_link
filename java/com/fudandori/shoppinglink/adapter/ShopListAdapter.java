@@ -15,7 +15,6 @@ public class ShopListAdapter extends ItemAdapter<ShopItem> {
 
     private ItemClickListener<ShopItem> listener;
     private RefreshListener refresh;
-    private boolean recolor = true;
 
     public ShopListAdapter(ItemClickListener<ShopItem> click, ItemClickListener<ShopItem> longClick, RefreshListener refresh) {
         super(longClick);
@@ -47,10 +46,7 @@ public class ShopListAdapter extends ItemAdapter<ShopItem> {
     @Override
     public void onBindViewHolder(@NonNull ItemViewHolder holder, int position) {
         ShopItem item = list.get(position);
-
-        int color = 0xff8bc34a;
-        if (recolor && item.isStrike()) color = 0xff90a4ae;
-        holder.set(item.getName(), item.getCategory(), item.getBrand(), item.getPrice(), item.getQuantity(), color);
+        holder.set(item.getName(), item.getCategory(), item.getBrand(), item.getPrice(), item.getQuantity(), item.isStrike());
     }
 
     @Override
@@ -108,10 +104,6 @@ public class ShopListAdapter extends ItemAdapter<ShopItem> {
 
             refresh.recount(total, bought);
         }
-    }
-
-    public void disableRecolor() {
-        recolor = false;
     }
 
     public void upload() {

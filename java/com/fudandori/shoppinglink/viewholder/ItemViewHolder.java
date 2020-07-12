@@ -1,20 +1,21 @@
 package com.fudandori.shoppinglink.viewholder;
 
 import android.view.View;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.fudandori.shoppinglink.R;
+import com.fudandori.shoppinglink.view.StrikeTextView;
 
 public class ItemViewHolder extends RecyclerView.ViewHolder {
 
-    private TextView nameTextView;
+    private StrikeTextView nameTextView;
     private TextView categoryTextView;
     private TextView brandTextView;
     private TextView priceTextView;
-    private LinearLayout linear;
+    private ConstraintLayout parent;
     private View view;
 
     public ItemViewHolder(View v) {
@@ -24,10 +25,10 @@ public class ItemViewHolder extends RecyclerView.ViewHolder {
         categoryTextView = v.findViewById(R.id.text2);
         brandTextView = v.findViewById(R.id.brand);
         priceTextView = v.findViewById(R.id.price);
-        linear = v.findViewById(R.id.linear);
+        parent = v.findViewById(R.id.parent);
     }
 
-    public void set(String name, String category, String brand, float price, int quantity, int color) {
+    public void set(String name, String category, String brand, float price, int quantity, boolean strike) {
         nameTextView.setText(name);
         categoryTextView.setText(category);
         brandTextView.setText(brand);
@@ -36,7 +37,9 @@ public class ItemViewHolder extends RecyclerView.ViewHolder {
         if (quantity > 1) value += " / x" + quantity;
         priceTextView.setText(value);
 
-        linear.setBackgroundColor(color);
+            nameTextView.strike(strike);
+        parent.setBackgroundColor(strike ? 0x77abcabc : 0x77000000);
+
     }
 
     public void setItem(String name, String category, String brand, float price) {
