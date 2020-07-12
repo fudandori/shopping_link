@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name"></string>
+    <string name="add_cat">Añadir</string>
+    <string name="cat_name">Nombre de categoría</string>
+    <string name="add_item">Añadir</string>
+    <string name="item_name">Nombre del artículo</string>
+    <string name="brand">Marca</string>
+    <string name="send">Enviar</string>
+    <string name="price">Precio</string>
+    <string name="quantity">Cantidad</string>
+    <string name="code">Código:</string>
+    <string name="import_button">Importar</string>
+</resources>
